@@ -40,17 +40,17 @@ public class Pizza {
         //this.getPrice();
         if(cheese== false) {
             this.price += extraChessePrice;
-            this.bill +="Extra Cheese Added: "+this.extraChessePrice+"\n";
+
             cheese= true;
         }
     }
 
     public void addExtraToppings(){
         // your code goes here
-        this.addExtraCheese();
+        //this.addExtraCheese();
         if( topping == false) {
             this.price += this.extraToppingPrice;
-            this.bill +="Extra Toppings Added: "+ this.extraToppingPrice + "\n";
+
             topping = true;
         }
 
@@ -60,7 +60,7 @@ public class Pizza {
         // your code goes here
         if ( takeaway == false) {
             this.price += this.takeAwayPrice;
-            this.bill +="Paperbag Added: "+this.takeAwayPrice+ "\n";
+
             takeaway = true;
         }
     }
@@ -68,11 +68,15 @@ public class Pizza {
     public String getBill(){
         // your code goes here
         if(billCreated==false) {
+
+            if(cheese==true)  this.bill +="Extra Cheese Added: "+this.extraChessePrice+"\n";
+            if(topping==true)   this.bill +="Extra Toppings Added: "+ this.extraToppingPrice + "\n";
+            if(takeaway== true)  this.bill +="Paperbag Added: "+this.takeAwayPrice+ "\n";
+
             this.bill += "Total Price: " + this.price+ "\n";
             billCreated = true;
-            return this.bill;
-        }
 
-        return "";
+        }
+        return this.bill;
     }
 }
